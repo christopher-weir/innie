@@ -15,12 +15,12 @@ module.exports = function( _file, _style ) {
 
     tokens.tokens  = parsers.parseStyles( tokens, style );
 
-    var cleanDocument = parsers.cleanDocument( tokens );
+    var parseDocument = parsers.parseDocument( tokens );
 
     // console.log(cleanDocument);
 
     // just a test
-    fs.writeFile('./index.html', cleanDocument, function(err) {
+    fs.writeFile('./index.html', parseDocument, function(err) {
         if(err) {
             return console.log(err);
         }
