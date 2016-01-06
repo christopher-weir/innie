@@ -88,18 +88,11 @@ module.exports = function( _source ) {
             matches     : matches,
             style       : hasStyle,
             styleAttr   : style,
-            classAttr   : 'class="' + unnededClasses + '"'
+            classAttr   : 'class="' + unnededClasses.trim() + '"'
         });
 
         e++;
     });
-
-    // for ( i = 0; i < tokens.length; i++) {
-    //     console.log(tokens[i].index);
-    //     splitSource[ tokens[i].index ] = tokens[i].newClass;
-    // }
-    // console.log('----------');
-    // console.log(splitSource.join(' '));
 
     return {
         tokens: tokens,
