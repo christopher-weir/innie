@@ -2,6 +2,7 @@
   "name": "@illuns/innie",
   "version": "0.0.1",
   "description": "inline css",
+  "author": "Christopher Weir <hello@illuns.com>",
   "main": "index.js",
   "scripts": {
     "test": "gulp test"
@@ -16,8 +17,7 @@
     "js",
     "inline"
   ],
-  "author": "Christopher Weir",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/christopher-weir/innie/issues"
   },
