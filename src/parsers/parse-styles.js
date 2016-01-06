@@ -5,6 +5,7 @@ var utils = require('../utils');
 module.exports = function( _tokens, _source ) {
 
     var i = 0;
+    var ii = 0;
     var tokens = _tokens.tokens;
 
     // clean out all the space
@@ -16,7 +17,7 @@ module.exports = function( _tokens, _source ) {
       '({' + anyChar + '})'
     );
 
-    var createElementRegExp = function( _name ){
+    var createCssClassRegExp = function( _name ){
 
         var elementRegExp = new RegExp(
           '(.' + _name + anyChar + '{'+ anyChar + '})'
@@ -26,7 +27,7 @@ module.exports = function( _tokens, _source ) {
 
     // loop through the tokens to find their styles in the css
     for ( i = 0; i < tokens.length; i++ ) {
-        var arraytest = source.split( createElementRegExp( tokens[ i ].matches[ 0 ].replace('#', '') ) );
+        var arraytest = source.split( createCssClassRegExp( tokens[ i ].matches[ 0 ].replace('#', '') ) );
 
         if( arraytest[1] ){
 

@@ -3,6 +3,7 @@
 var loaders = require('../loaders');
 var parsers = require('../parsers');
 
+// TODO remove, this is temporary
 var fs = require('fs');
 
 // load up a file and
@@ -16,8 +17,6 @@ module.exports = function( _file, _style ) {
     tokens.tokens  = parsers.parseStyles( tokens, style );
 
     var parseDocument = parsers.parseDocument( tokens );
-
-    // console.log(cleanDocument);
 
     // just a test
     fs.writeFile('./index.html', parseDocument, function(err) {
