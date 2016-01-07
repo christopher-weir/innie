@@ -14,12 +14,12 @@ module.exports = function( _file, _style ) {
     var style   = loader.load( _style );
     var tokens  = parsers.parseTokens( file );
 
-    tokens.tokens  = parsers.parseStyles( tokens, style );
+    tokens.tokens  = parsers.parseCss( tokens, style );
 
-    var parseDocument = parsers.parseDocument( tokens );
+    var parseHtml = parsers.parseHtml( tokens );
 
     // just a test
-    fs.writeFile('./index.html', parseDocument, function(err) {
+    fs.writeFile('./index.html', parseHtml, function(err) {
         if(err) {
             return console.log(err);
         }
