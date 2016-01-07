@@ -1,3 +1,3 @@
 exports.parseTokens     = require('./parse-tokens');
-exports.parseStyles     = require('./parse-styles');
-exports.parseDocument   = require('./parse-document');
+exports.parseCss     = require('./parse-css');
+exports.parseHtml   = require('./parse-html');

@@ -31,10 +31,10 @@ exports.Innie = function( _opts ) {
 
     var self = this;
 
-    this.compileFile = publicMethods.compileFile;
+    this.compileHtml = publicMethods.compileHtml;
 };
 
 
 
 defaultInstance = new exports.Innie();
-exports.compileFile = defaultInstance.compileFile;
+exports.compileHtml = defaultInstance.compileHtml;

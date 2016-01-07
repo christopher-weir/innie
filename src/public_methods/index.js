@@ -1,1 +1,1 @@
-exports.compileFile = require('./compile-file');
+exports.compileHtml = require('./compile-html');
