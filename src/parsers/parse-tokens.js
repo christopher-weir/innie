@@ -3,7 +3,7 @@
 var utils = require('../utils');
 
 var returnArrayOfClasses = function( _array ){
-    // splits into: ['class="', 'classes', '"']
+
     var i = 0;
     var classAttr = '';
 
@@ -22,27 +22,10 @@ module.exports = function( _source ) {
 
     var i = 0;
     var tokens = [];
-
-
     var stack = [];
-    var anyChar = '[\\s\\S]*?';
-
-    // Split the template source based on class attrs
-    // /(class="[\\s\\S]*?")/
-    var classRegExp = new RegExp(
-      '(class="' + anyChar + '")'
-    );
-
-    var styleRegExp = new RegExp(
-      '(style="' + anyChar + '")'
-    );
-
-    var elementRegExp = new RegExp(
-      '(<' + anyChar + '>)'
-    );
 
     // split the doc into an array
-    var splitSource = source.split( elementRegExp );
+    var splitSource = source.split( utils.elementRegExp( '<','>' ) );
 
     /*!
     * Loop over the source, split via the tag/var/comment regular expression splitter.
@@ -63,7 +46,7 @@ module.exports = function( _source ) {
         // only initialise vars if needed
         // save the original string for later
         var originalString = _chunk;
-        var classes         = returnArrayOfClasses( originalString.split( classRegExp ) );
+        var classes         = returnArrayOfClasses( originalString.split( utils.elementRegExp( 'class="','"' ) ) );
         var hasStyle        = _chunk.includes('style="');
         var style           = '';
 
@@ -79,7 +62,7 @@ module.exports = function( _source ) {
         }
 
         if( hasStyle ){
-            style = originalString.split( styleRegExp )[1];
+            style = originalString.split( utils.elementRegExp( 'style="','"' ) )[1];
         }
 
         tokens.push({

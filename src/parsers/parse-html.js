@@ -7,15 +7,6 @@ module.exports = function( _tokens ) {
     var i = 0;
     var tokens = _tokens.tokens;
     var original = _tokens.split_source;
-    var anyChar = '[\\s\\S]*?';
-
-    var classRegExp = new RegExp(
-      '(class="' + anyChar + '")'
-    );
-
-    var styleRegExp = new RegExp(
-      '(style="' + anyChar + '")'
-    );
 
     var addStyle = function( _style ){
         var style = '';
@@ -26,7 +17,7 @@ module.exports = function( _tokens ) {
     };
 
     var createNode = function( _token ){
-        var nodeArray = _token.original.split( classRegExp );
+        var nodeArray = _token.original.split( utils.elementRegExp( 'class="','"' ) );
 
         var style = addStyle( _token.styleToAdd );
 
