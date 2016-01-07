@@ -16,9 +16,10 @@ var returnArrayOfClasses = function( _array ){
     return classAttr[1].trim().split(/\s+/);
 };
 
-module.exports = function( _source ) {
+module.exports = function( _source, _options ) {
 
     var source = _source.replace(/\r\n/g, '\n');
+    var options = _options;
 
     var i = 0;
     var tokens = [];
@@ -54,7 +55,7 @@ module.exports = function( _source ) {
         var unnededClasses = '';
 
         for ( i = 0; i < classes.length; i++) {
-            if( classes[ i ].includes('#') ){
+            if( classes[ i ].includes( options.hook ) ){
                 matches.push( classes[ i ] );
             }else{
                 unnededClasses = unnededClasses + classes[ i ] + ' ';

@@ -7,14 +7,15 @@ var parsers = require('../parsers');
 var fs = require('fs');
 
 // load up a file and
-module.exports = function( _file, _style ) {
+module.exports = function( _file, _style, _options ) {
 
+    var options = _options;
     var loader  = loaders.fs();
     var file    = loader.load( _file );
     var style   = loader.load( _style );
-    var tokens  = parsers.parseTokens( file );
+    var tokens  = parsers.parseTokens( file, options );
 
-    tokens.tokens  = parsers.parseCss( tokens, style );
+    tokens.tokens  = parsers.parseCss( tokens, style, options );
 
     var parseHtml = parsers.parseHtml( tokens );
 

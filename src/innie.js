@@ -14,7 +14,7 @@ var publicMethods = require('./public_methods');
  * @property {String} hook What the app looks for as the prefix to the replacement
  */
 var defaultOptions = {
-    hook: '##'
+    hook: '#'
 };
 
 var defaultInstance;
@@ -29,12 +29,18 @@ var defaultInstance;
 
 exports.Innie = function( _opts ) {
 
+    this.options = defaultOptions;
+
     var self = this;
 
-    this.compileHtml = publicMethods.compileHtml;
+    this.compileHtml = function( _file, _style ){
+        publicMethods.compileHtml( _file, _style, self.options );
+        return;
+    };
 };
 
 
 
 defaultInstance = new exports.Innie();
+exports.options = defaultInstance.options;
 exports.compileHtml = defaultInstance.compileHtml;

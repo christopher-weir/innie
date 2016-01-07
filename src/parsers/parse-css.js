@@ -2,13 +2,13 @@
 
 var utils = require('../utils');
 
-module.exports = function( _tokens, _source ) {
+module.exports = function( _tokens, _source, _options ) {
 
     var i = 0;
     var ii = 0;
-    var tokens = _tokens.tokens;
-
-    // clean out all the space
+    var tokens  = _tokens.tokens;
+    var options = _options;
+    // clean out all the spacees
     var source = _source.replace(/\s\s+/g, '');
 
 
@@ -21,7 +21,7 @@ module.exports = function( _tokens, _source ) {
 
     // loop through the tokens to find their styles in the css
     for ( i = 0; i < tokens.length; i++ ) {
-        var arraytest = source.split( createCssClassRegExp( tokens[ i ].matches[ 0 ].replace('#', '') ) );
+        var arraytest = source.split( createCssClassRegExp( tokens[ i ].matches[ 0 ].replace( options.hook, '') ) );
 
         if( arraytest[1] ){
 
