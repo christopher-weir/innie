@@ -19,6 +19,6 @@ module.exports = function( _style ) {
 
         }
     }
-    console.log(properties);
-    return _style;
+
+    return properties;
 };

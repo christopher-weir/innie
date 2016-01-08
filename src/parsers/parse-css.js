@@ -2,6 +2,27 @@
 
 var utils = require('../utils');
 
+var mergeFilterArrays = function( _array ){
+    var e = 0;
+
+    var cleanArray = {};
+    var params = '';
+
+    for ( e = 0; e < _array.length; e++) {
+        if( _array[e].includes(':') ){
+            var key = _array[e].split(':')[ 0 ].replace(/\s\s+/g, ' ');
+            cleanArray[ key ] = {};
+            cleanArray[ key ] = _array[e].split(':')[ 1 ];
+        }
+    }
+
+    for (var _key in cleanArray) {
+        params = params + _key + cleanArray[ _key ] + '; ';
+    }
+
+    return params.trim();
+};
+
 module.exports = function( _tokens, _source, _options ) {
 
     var i = 0;
@@ -25,9 +46,16 @@ module.exports = function( _tokens, _source, _options ) {
 
         if( arraytest[1] ){
 
+            var properties = [];
             var styleToAdd = arraytest[1].split( utils.elementRegExp( '{','}' ) );
-            tokens[ i ].styleToAdd = styleToAdd[ 1 ].replace(/(\r\n|\n|\r|[{}])/gm,'');
 
+            properties = styleToAdd[ 1 ].replace(/(\r\n|\n|\r|[{}])/gm,'').split(';');
+
+            tokens[ i ].styleToAdd = mergeFilterArrays( properties.concat(tokens[ i ].styleProperties) );
+
+            // tokens[ i ].styleProperties
+            // properties
+            // = tokens[ i ].styleToAdd
         }
     }
 
