@@ -16,6 +16,14 @@ var returnArrayOfClasses = function( _array ){
     return classAttr[1].trim().split(/\s+/);
 };
 
+/**
+ * Parses the given document and creates tokens that can be used later when
+ * compiling the file.
+ * @method function
+ * @param  {String} _source  The origional source
+ * @param  {Object} _options The options object
+ * @return {Object}          The tokens object
+ */
 module.exports = function( _source, _options ) {
 
     var source = _source.replace(/\r\n/g, '\n');
@@ -35,6 +43,11 @@ module.exports = function( _source, _options ) {
 
     var e = 0;
 
+    var anyChar     = '[\\s\\S]*?';
+    var styleRegExp = new RegExp(
+      '(style' + anyChar + '=' + anyChar + '"' + anyChar + '")'
+    );
+
     utils.each( splitSource, function ( _chunk ) {
 
         var hasClass = _chunk.includes('class="');
@@ -48,8 +61,9 @@ module.exports = function( _source, _options ) {
         // save the original string for later
         var originalString = _chunk;
         var classes         = returnArrayOfClasses( originalString.split( utils.elementRegExp( 'class="','"' ) ) );
-        var hasStyle        = _chunk.includes('style="');
+        var hasStyle        = _chunk.includes('style');
         var style           = '';
+        var styleProperties          = [];
 
         var matches = [];
         var unnededClasses = '';
@@ -63,16 +77,18 @@ module.exports = function( _source, _options ) {
         }
 
         if( hasStyle ){
-            style = originalString.split( utils.elementRegExp( 'style="','"' ) )[1];
+            style = originalString.split( styleRegExp )[1];
+            styleProperties = utils.getStyleProperties( style );
         }
 
         tokens.push({
-            index       : e,
-            original    : originalString,
-            matches     : matches,
-            style       : hasStyle,
-            styleAttr   : style,
-            classAttr   : 'class="' + unnededClasses.trim() + '"'
+            index           : e,
+            original        : originalString,
+            matches         : matches,
+            style           : hasStyle,
+            styleAttr       : style,
+            styleProperties : styleProperties,
+            classAttr       : 'class="' + unnededClasses.trim() + '"'
         });
 
         e++;
