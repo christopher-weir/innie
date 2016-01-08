@@ -25,8 +25,6 @@ exports.Innie = function( _opts ) {
 
     this.options = utils.extend( defaultOptions, _opts || {});
 
-    console.log(this.options);
-
     var self = this;
 
     this.compileHtml = function( _file, _style ){
