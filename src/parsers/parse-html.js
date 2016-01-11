@@ -21,7 +21,6 @@ module.exports = function( _tokens ) {
     var createNode = function( _token ){
 
         var elementStart = _token.original.split( utils.elementRegExp( '<',' ' ) );
-        console.log(elementStart[ 1 ]);
 
         var nodeArray = _token.original.split( utils.elementRegExp( 'class="','"' ) );
 
