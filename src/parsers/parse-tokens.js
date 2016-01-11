@@ -2,20 +2,6 @@
 
 var utils = require('../utils');
 
-var returnArrayOfClasses = function( _array ){
-
-    var i = 0;
-    var classAttr = '';
-
-    for ( i = 0; i < _array.length; i++) {
-        if( _array[ i ].includes('class="') ){
-            classAttr = _array[ i ];
-        }
-    }
-    classAttr = classAttr.split('"');
-    return classAttr[1].trim().split(/\s+/);
-};
-
 /**
  * Parses the given document and creates tokens that can be used later when
  * compiling the file.
@@ -60,7 +46,7 @@ module.exports = function( _source, _options ) {
         // only initialise vars if needed
         // save the original string for later
         var originalString = _chunk;
-        var classes         = returnArrayOfClasses( originalString.split( utils.elementRegExp( 'class="','"' ) ) );
+        var classes         = utils.getArrayOfClasses( originalString.split( utils.elementRegExp( 'class="','"' ) )[1] );
         var hasStyle        = _chunk.includes('style');
         var style           = '';
         var styleProperties          = [];
