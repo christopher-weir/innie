@@ -23,9 +23,9 @@ exports.Innie = function( _opts ) {
 
     utils.validateOptions( _opts );
 
-    this.options = utils.extend( defaultOptions, _opts || {});
-
     var self = this;
+
+    this.options = utils.extend( defaultOptions, _opts || {});
 
     this.compileHtml = function( _file, _style ){
         publicMethods.compileHtml( _file, _style, self.options );
