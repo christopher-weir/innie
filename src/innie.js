@@ -4,6 +4,10 @@ var loaders = require('./loaders');
 var utils = require('./utils');
 var publicMethods = require('./public_methods');
 
+/**
+ * innie version number as a string.
+ */
+exports.version = '0.0.1';
 
 
 /**
@@ -34,6 +38,6 @@ exports.Innie = function( _opts ) {
 
 
 
-defaultInstance = new exports.Innie();
-exports.options = defaultInstance.options;
-exports.compileHtml = defaultInstance.compileHtml;
+defaultInstance         = new exports.Innie();
+exports.options         = defaultInstance.options;
+exports.compileHtml     = defaultInstance.compileHtml;
