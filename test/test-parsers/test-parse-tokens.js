@@ -180,5 +180,27 @@ describe('Create Token Util', function(){
 
 
 describe('Parse Token', function(){
-    console.log('TODO Parse Token');
+
+    var file = '<div class="blah blah-blad  classhaha #awefweaf"></div><div class="blah blahclasshaha #awefaaaaweaf" style = "display: block;width: 100%;height: 34px;"></div>';
+    var options = {
+        hook: '#'
+    };
+
+    it('Should return an object', function(){
+
+        expect( parsers.parseTokens( file, options ) )
+            .to.be.an('object');
+    });
+
+    it('Retured object properties should be arrays', function(){
+
+        expect( parsers.parseTokens( file, options ) )
+            .to.have.property('tokens')
+            .to.be.an('array');
+
+        expect( parsers.parseTokens( file, options ) )
+            .to.have.property('split_source')
+            .to.be.an('array');
+    });
+
 });
