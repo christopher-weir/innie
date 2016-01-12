@@ -25,7 +25,8 @@ module.exports = function( _chunk, _options, _index ) {
         style       : {
             has_style   : hasStyle,
             original    : style,
-            properties  : styleProperties
+            properties  : styleProperties,
+            compiled    : ''
         },
         class       : {
             original    : _chunk.split( classRegExp() )[1],
