@@ -11,6 +11,6 @@ module.exports = function( _class ) {
     var styleToAdd      = _class.split( elementRegExp( '{','}' ) );
 
     classProps = styleToAdd[ 1 ].replace(/(\r\n|\n|\r|[{}])/gm,'').split(';');
-    console.log(classProps);
+
     return classProps;
 };
