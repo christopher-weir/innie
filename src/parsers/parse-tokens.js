@@ -40,42 +40,8 @@ module.exports = function( _source, _options ) {
             return;
         }
 
-        // utils.createToken( _chunk, e );
-
-        // only initialise vars if needed
-        // save the original string for later
-        var originalString  = _chunk;
-        var classes         = utils.getArrayOfClasses( originalString.split( utils.elementRegExp( 'class="','"' ) )[1] );
-        var hasStyle        = _chunk.includes('style');
-        var style           = '';
-        var styleProperties          = [];
-
-        var matches = [];
-        var unnededClasses = '';
-
-        for ( i = 0; i < classes.length; i++) {
-            if( classes[ i ].includes( options.hook ) ){
-                matches.push( classes[ i ] );
-            }else{
-                unnededClasses = unnededClasses + classes[ i ] + ' ';
-            }
-        }
-
-        if( hasStyle ){
-            style = originalString.split( utils.styleRegExp() )[1];
-            styleProperties = utils.getStyleProperties( style );
-        }
-
-        tokens.push({
-            index           : e,
-            original        : originalString,
-            matches         : matches,
-            style           : hasStyle,
-            styleAttr       : style,
-            styleProperties : styleProperties,
-            classAttr       : 'class="' + unnededClasses.trim() + '"'
-        });
-
+        // create the token for the chunk containing a class
+        tokens.push( utils.createToken( _chunk, options, e ) );
         e++;
     });
 
