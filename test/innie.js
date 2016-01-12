@@ -34,4 +34,22 @@ describe('Innie Style Inliner:', function() {
 
 
 
+    describe('Parsers', function(){
+
+        console.log('TODO test for the Parsers');
+        //importTest('Parse Html', './test-parsers/test-parse-html');
+
+    });
+
+
+
+    describe('Public Methods', function(){
+
+         console.log('TODO test for the public methods');
+
+
+    });
+
+
+
 });

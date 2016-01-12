@@ -18,6 +18,10 @@ module.exports = function( _file, _style, _options ) {
     tokens.tokens  = parsers.parseCss( tokens, style, options );
 
     var parseHtml = parsers.parseHtml( tokens );
+    console.log('parseHtml');
+    console.log(parseHtml);
+    console.log('-------');
+    console.log(tokens);
 
     // just a test
     fs.writeFile('./index.html', parseHtml, function(err) {
