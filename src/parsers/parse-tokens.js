@@ -12,8 +12,6 @@ var utils           = require('../utils');
  */
 module.exports = function( _source, _options ) {
 
-    var source = _source.replace(/\r\n/g, '\n');
-
     var options = _options;
 
     var i = 0;
@@ -21,14 +19,15 @@ module.exports = function( _source, _options ) {
     var tokens = [];
     var stack = [];
 
-    // split the documnet into an array by html tags
+    // clean the source and spit it
+    var source = _source.replace(/\r\n/g, '\n');
     var splitSource = source.split( utils.elementRegExp( '<','>' ) );
+
 
     /*!
     * Loop over the source, split via the tag/var/comment regular expression splitter.
     * Send each chunk to the appropriate parser.
     */
-
     utils.each( splitSource, function ( _chunk ) {
 
         // check if the chunk has a class attr to parse

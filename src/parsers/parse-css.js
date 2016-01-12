@@ -9,7 +9,7 @@ var mergeFilterArrays = function( _array ){
     var params = '';
 
     for ( e = 0; e < _array.length; e++) {
-        if( _array[e].includes(':') ){
+        if( _array[e] && _array[e].includes(':') ){
             var key = _array[e].split(':')[ 0 ].replace(/\s\s+/g, ' ');
             cleanArray[ key ] = {};
             cleanArray[ key ] = _array[e].split(':')[ 1 ];
@@ -17,18 +17,21 @@ var mergeFilterArrays = function( _array ){
     }
 
     for (var _key in cleanArray) {
-        params = params + _key + cleanArray[ _key ] + '; ';
+        params = params + _key + ':' + cleanArray[ _key ] + '; ';
     }
 
     return params.trim();
 };
 
+// parse the given css to find any matching classes
+// to the ones supplied
 module.exports = function( _tokens, _source, _options ) {
 
     var i = 0;
     var ii = 0;
     var tokens  = _tokens.tokens;
     var options = _options;
+
     // clean out all the spacees
     var source = _source.replace(/\s\s+/g, '');
 
@@ -42,7 +45,8 @@ module.exports = function( _tokens, _source, _options ) {
 
     // loop through the tokens to find their styles in the css
     for ( i = 0; i < tokens.length; i++ ) {
-        var arraytest = source.split( createCssClassRegExp( tokens[ i ].matches[ 0 ].replace( options.hook, '') ) );
+
+        var arraytest = source.split( createCssClassRegExp( tokens[ i ].class.matches[ 0 ].replace( options.hook, '') ) );
 
         if( arraytest[1] ){
 
@@ -52,7 +56,7 @@ module.exports = function( _tokens, _source, _options ) {
             properties = styleToAdd[ 1 ].replace(/(\r\n|\n|\r|[{}])/gm,'').split(';');
 
             tokens[ i ].styleToAdd = mergeFilterArrays( properties.concat(tokens[ i ].styleProperties) );
-
+            console.log(tokens[ i ].styleToAdd);
             // tokens[ i ].styleProperties
             // properties
             // = tokens[ i ].styleToAdd
