@@ -38,8 +38,6 @@ module.exports = function( _tokens ) {
 
         var newNode = String( elementStart[ 1 ] + _token.classAttr + style ).replace(/\s\s+/g, ' ');
 
-        console.log(newNode);
-
         return String( nodeArray[ 0 ] + _token.classAttr + style + nodeArray[ 2 ] ).replace(/\s\s+/g, ' ');
     };
 

@@ -1,6 +1,6 @@
 'use strict';
 
-var utils = require('../utils');
+var utils           = require('../utils');
 
 /**
  * Parses the given document and creates tokens that can be used later when
@@ -13,13 +13,15 @@ var utils = require('../utils');
 module.exports = function( _source, _options ) {
 
     var source = _source.replace(/\r\n/g, '\n');
+
     var options = _options;
 
     var i = 0;
+    var e = 0;
     var tokens = [];
     var stack = [];
 
-    // split the doc into an array
+    // split the documnet into an array by html tags
     var splitSource = source.split( utils.elementRegExp( '<','>' ) );
 
     /*!
@@ -27,15 +29,10 @@ module.exports = function( _source, _options ) {
     * Send each chunk to the appropriate parser.
     */
 
-    var e = 0;
-
-    var anyChar     = '[\\s\\S]*?';
-    var styleRegExp = new RegExp(
-      '(style' + anyChar + '=' + anyChar + '"' + anyChar + '")'
-    );
-
     utils.each( splitSource, function ( _chunk ) {
 
+        // check if the chunk has a class attr to parse
+        // if not return
         var hasClass = _chunk.includes('class="');
 
         if (!_chunk || !hasClass) {
@@ -43,9 +40,11 @@ module.exports = function( _source, _options ) {
             return;
         }
 
+        // utils.createToken( _chunk, e );
+
         // only initialise vars if needed
         // save the original string for later
-        var originalString = _chunk;
+        var originalString  = _chunk;
         var classes         = utils.getArrayOfClasses( originalString.split( utils.elementRegExp( 'class="','"' ) )[1] );
         var hasStyle        = _chunk.includes('style');
         var style           = '';
@@ -63,7 +62,7 @@ module.exports = function( _source, _options ) {
         }
 
         if( hasStyle ){
-            style = originalString.split( styleRegExp )[1];
+            style = originalString.split( utils.styleRegExp() )[1];
             styleProperties = utils.getStyleProperties( style );
         }
 

@@ -8,3 +8,5 @@ exports.createElement               = require('./create-element');
 
 exports.getArrayOfClasses           = require('./markup/get-array-of-classes');
 exports.getStyleProperties          = require('./markup/get-style-properties');
+
+exports.createToken                 = require('./tokens/create-token');

@@ -1,3 +1,5 @@
+'use strict';
+
 var innie       = require('../src/innie');
 var utils       = require('../src/utils');
 var expect      = require('chai').expect;
@@ -7,7 +9,7 @@ function importTest(name, path) {
     describe(name, function () {
         require(path);
     });
-};
+}
 
 
 describe('Innie Style Inliner:', function() {
@@ -36,8 +38,7 @@ describe('Innie Style Inliner:', function() {
 
     describe('Parsers', function(){
 
-        console.log('TODO test for the Parsers');
-        //importTest('Parse Html', './test-parsers/test-parse-html');
+        importTest('Parse Tokens', './test-parsers/test-parse-tokens');
 
     });
 
