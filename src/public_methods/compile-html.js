@@ -13,6 +13,7 @@ module.exports = function( _file, _style, _options ) {
     var loader  = loaders.fs();
     var file    = loader.load( _file );
     var style   = loader.load( _style );
+
     var tokens  = parsers.parseTokens( file, options );
 
     tokens.tokens  = parsers.parseCss( tokens, style, options );

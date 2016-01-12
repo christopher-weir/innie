@@ -34,21 +34,19 @@ module.exports = function( _tokens, _source, _options ) {
 
     // clean out all the spacees
     var source = _source.replace(/\s\s+/g, '');
-
-
-    var createCssClassRegExp = function( _name ){
-
-        var anyChar = '[\\s\\S]*?';
-
-        return utils.elementRegExp( '.' + _name, '{'+ anyChar + '}' );
-    };
+    source = source.replace(/\r?\n|\r/g, '');
 
     // loop through the tokens to find their styles in the css
     for ( i = 0; i < tokens.length; i++ ) {
+        //
+        var arraytest = source.split( utils.cssClassRegExp( tokens[ i ].class.matches[ 0 ].replace( options.hook, '') ) );
 
-        var arraytest = source.split( createCssClassRegExp( tokens[ i ].class.matches[ 0 ].replace( options.hook, '') ) );
+
 
         if( arraytest[1] ){
+
+
+            //console.log(arraytest[1]);
 
             var properties = [];
             var styleToAdd = arraytest[1].split( utils.elementRegExp( '{','}' ) );
@@ -56,7 +54,7 @@ module.exports = function( _tokens, _source, _options ) {
             properties = styleToAdd[ 1 ].replace(/(\r\n|\n|\r|[{}])/gm,'').split(';');
 
             tokens[ i ].styleToAdd = mergeFilterArrays( properties.concat(tokens[ i ].styleProperties) );
-            console.log(tokens[ i ].styleToAdd);
+            //console.log(tokens[ i ].styleToAdd);
             // tokens[ i ].styleProperties
             // properties
             // = tokens[ i ].styleToAdd

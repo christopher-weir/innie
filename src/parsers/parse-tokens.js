@@ -16,11 +16,13 @@ module.exports = function( _source, _options ) {
 
     var i = 0;
     var e = 0;
+    // the tokens we are to update
     var tokens = [];
     var stack = [];
 
     // clean the source and spit it
     var source = _source.replace(/\r\n/g, '\n');
+    // the origional src
     var splitSource = source.split( utils.elementRegExp( '<','>' ) );
 
 

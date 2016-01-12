@@ -40,6 +40,8 @@ describe('Innie Style Inliner:', function() {
 
         importTest('Parse Tokens', './test-parsers/test-parse-tokens');
 
+        importTest('Parse Css', './test-parsers/test-parse-css');
+
     });
 
 
