@@ -8,7 +8,8 @@ exports.validateOptions             = require('./validate-options');
 
 exports.getArrayOfClasses           = require('./markup/get-array-of-classes');
 exports.getStyleProperties          = require('./markup/get-style-properties');
-exports.createNode                  = require('./markup/create-node');
+exports.createHtmlNode              = require('./markup/create-html-node');
+exports.createHtmlFile              = require('./markup/create-html-file');
 
 exports.getMatchingClass            = require('./css/get-matching-class');
 exports.getClassProps               = require('./css/get-class-props');

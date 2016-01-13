@@ -18,9 +18,10 @@ exports.version = '0.0.1';
  * @property {String} hook What the app looks for as the prefix to the replacement
  */
 var defaultOptions = {
-    hook: '#'
+    hook: '#',
+    location: ''
 };
-var defaultInstance;
+var defaultInstance = null;
 
 
 exports.Innie = function( _opts ) {
