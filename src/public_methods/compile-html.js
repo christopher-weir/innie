@@ -17,7 +17,6 @@ module.exports = function( _file, _style, _options ) {
     var tokens  = parsers.parseTokens( file, options );
 
     tokens.tokens  = parsers.parseCss( tokens, style, options );
-    console.log( tokens.tokens );
 
     var parseHtml = parsers.parseHtml( tokens );
 
