@@ -1,5 +1,12 @@
 'use strict';
 
+/**
+ * Splits the style attr and returns an array of the nodes origional style
+ * properties
+ * @method getStyleProperties
+ * @param  {String} _style  the string to parse
+ * @return {array}          an array of the style properties
+ */
 module.exports = function( _style ) {
 
     var i = 0;

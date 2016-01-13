@@ -6,11 +6,8 @@
  * @param  {string} _suffix
  * @return {RegExp}
  */
-
-var anyChar     = '[\\s\\S]*?';
-
 module.exports = function( ) {
-
+    var anyChar     = '[\\s\\S]*?';
     var styleRegExp = new RegExp(
       '(class' + anyChar + '=' + anyChar + '"' + anyChar + '")'
     );
