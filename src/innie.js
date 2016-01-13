@@ -18,8 +18,9 @@ exports.version = '0.0.1';
  * @property {String} hook What the app looks for as the prefix to the replacement
  */
 var defaultOptions = {
-    hook: '#',
-    location: ''
+    hook        : '#',
+    location    : './',
+    file_name   : null,
 };
 var defaultInstance = null;
 
