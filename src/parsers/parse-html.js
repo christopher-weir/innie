@@ -13,12 +13,8 @@ var utils           = require('../utils');
 module.exports = function( _tokens, _options ) {
 
     var options = _options;
-
-    var i = 0;
-    var e = 0;
-    // the tokens we are to update
-    var tokens = [];
-    var stack = [];
+    var i       = 0;
+    var tokens  = [];
 
 
     /*!
@@ -32,13 +28,13 @@ module.exports = function( _tokens, _options ) {
         var hasClass = _chunk.includes('class="');
 
         if (!_chunk || !hasClass) {
-            e++;
+            i++;
             return;
         }
 
         // create the token for the chunk containing a class
-        tokens.push( utils.createToken( _chunk, options, e ) );
-        e++;
+        tokens.push( utils.createToken( _chunk, options, i ) );
+        i++;
     });
 
     return tokens;
