@@ -26,3 +26,11 @@ Features
 <br />
 ##Installation
 Not ready yet for distribution, but will be available via npm when it is.
+<br />
+```javascript
+    var innie      = require('@illuns/innie');
+    innie.compileHtml({
+        file: 'test/index.html',
+        style: 'test/style.css'
+    });
+```
