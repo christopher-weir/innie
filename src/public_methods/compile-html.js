@@ -5,9 +5,6 @@ var parsers = require('../parsers');
 var utils   = require('../utils');
 var path    = require('path');
 
-// TODO remove, this is temporary
-var fs = require('fs');
-
 // load up a file and
 module.exports = function( _file, _style, _options ) {
 
@@ -17,6 +14,7 @@ module.exports = function( _file, _style, _options ) {
     var file        = loader.load( _file );
     var name        = options.file_name || path.basename( _file );
     var location    = options.location;
+    var createHtml  = '';
 
     var style       = loader.load( _style );
 
@@ -29,14 +27,9 @@ module.exports = function( _file, _style, _options ) {
 
     tokens.tokens  = parsers.parseCss( tokens, style, options );
 
-    var createHtml = utils.createHtmlFile( tokens );
+    createHtml = utils.createHtmlFile( tokens );
 
-    // just a test
-    fs.writeFile( location + name, createHtml, function(err) {
-        if(err) {
-            return console.log(err);
-        }
-
-        console.log('The file was saved!');
+    loaders.save( location + name, createHtml ).then(function( data ){
+        console.log(data);
     });
 };
