@@ -2,7 +2,7 @@
 Css class to style in-liner. Sometimes you just need to inline your styles. This makes it a bit easier to maintain.
 
 ---
-
+<br />
 Features
 --------
 <br />
@@ -20,6 +20,6 @@ Features
 #####Equals This:
 
     <div class="class-name class-name-01" style="color: red; background-color: green;"></div>
-
+<br />
 ##Installation
 Not ready yet for distribution, but will be available via npm when it is.
