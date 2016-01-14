@@ -12,8 +12,7 @@ module.exports = function( _tokens, _source, _options ) {
     var options = _options;
 
     // clean out all the spacees
-    var source = _source.replace(/\s\s+/g, '');
-    source = source.replace(/\r?\n|\r/g, '');
+    var source = _source.replace(/\s\s+/g, '').replace(/\r?\n|\r/g, '');
 
     // loop through the tokens to find their styles in the css
     for ( i = 0; i < tokens.length; i++ ) {
