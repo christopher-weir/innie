@@ -6,17 +6,17 @@ var utils   = require('../utils');
 var path    = require('path');
 
 // load up a file and
-module.exports = function( _file, _style, _options ) {
+module.exports = function( _options ) {
 
     var options = _options;
     var loader  = loaders.fs();
 
-    var file        = loader.load( _file );
-    var name        = options.file_name || path.basename( _file );
+    var file        = loader.load( options.file );
+    var name        = options.file_name || path.basename( options.file );
     var location    = options.location;
     var createHtml  = '';
 
-    var style       = loader.load( _style );
+    var style       = loader.load( options.style );
 
     var tokens  = {
         tokens: [],

@@ -21,6 +21,8 @@ var defaultOptions = {
     hook        : '#',
     location    : './',
     file_name   : null,
+    file        : '',
+    style       : ''
 };
 var defaultInstance = null;
 
@@ -33,8 +35,11 @@ exports.Innie = function( _opts ) {
 
     this.options = utils.extend( defaultOptions, _opts || {});
 
-    this.compileHtml = function( _file, _style ){
-        publicMethods.compileHtml( _file, _style, self.options );
+    this.compileHtml = function( _options ){
+
+        var options = utils.extend( self.options, _options || {});
+
+        publicMethods.compileHtml( options );
     };
 };
 
