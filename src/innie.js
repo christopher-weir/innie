@@ -39,7 +39,13 @@ exports.Innie = function( _opts ) {
 
         var options = utils.extend( self.options, _options || {});
 
-        publicMethods.compileHtml( options );
+        return new Promise(function( _resolve, _reject ){
+            publicMethods.compileHtml( options )
+                .then(function( data ){
+                    _resolve('saved');
+                });
+        });
+
     };
 };
 

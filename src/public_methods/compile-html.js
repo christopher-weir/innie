@@ -23,13 +23,17 @@ module.exports = function( _options ) {
         split_source: file.replace(/\r\n/g, '\n').split( utils.elementRegExp( '<','>' ) )
     };
 
-    tokens.tokens  = parsers.parseHtml( tokens, options );
+    return new Promise(function( _resolve, _reject ){
 
-    tokens.tokens  = parsers.parseCss( tokens, style, options );
+        tokens.tokens  = parsers.parseHtml( tokens, options );
 
-    createHtml = utils.createHtmlFile( tokens );
+        tokens.tokens  = parsers.parseCss( tokens, style, options );
 
-    loaders.save( location + name, createHtml ).then(function( data ){
-        console.log(data);
+        createHtml = utils.createHtmlFile( tokens );
+
+        loaders.save( location + name, createHtml )
+            .then(function( data ){
+                _resolve('saved');
+            });
     });
 };

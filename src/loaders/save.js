@@ -18,7 +18,7 @@ module.exports = function( _path, _file ) {
             if( err ) {
                 return _reject(err);
             }
-            _resolve('saved');
+            _resolve( null, 'saved');
         });
     });
 };
