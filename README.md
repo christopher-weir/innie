@@ -32,5 +32,7 @@ Not ready yet for distribution, but will be available via npm when it is.
     innie.compileHtml({
         file: 'test/index.html',
         style: 'test/style.css'
+    }).then(function(){
+        console.log('done');
     });
 ```
