@@ -20,7 +20,7 @@ module.exports = function( _options ) {
 
     var tokens  = {
         tokens: [],
-        split_source: file.replace(/\r\n/g, '\n').split( utils.elementRegExp( '<','>' ) )
+        split_source: utils.splitSource( file )
     };
 
     return new Promise(function( _resolve, _reject ){

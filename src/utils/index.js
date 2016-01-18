@@ -10,6 +10,7 @@ exports.getArrayOfClasses           = require('./markup/get-array-of-classes');
 exports.getStyleProperties          = require('./markup/get-style-properties');
 exports.createHtmlNode              = require('./markup/create-html-node');
 exports.createHtmlFile              = require('./markup/create-html-file');
+exports.splitSource                 = require('./markup/split-source');
 
 exports.getMatchingClass            = require('./css/get-matching-class');
 exports.getClassProps               = require('./css/get-class-props');
