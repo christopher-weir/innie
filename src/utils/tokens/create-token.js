@@ -1,9 +1,9 @@
 'use strict';
 
 var getArrayOfClasses           = require('../markup/get-array-of-classes');
-var getStyleProperties           = require('../markup/get-style-properties');
-var classRegExp                 = require('../class-reg-exp');
-var styleRegExp                 = require('../style-reg-exp');
+var getStyleProperties          = require('../markup/get-style-properties');
+var classRegExp                 = require('../reg-exp/class-reg-exp');
+var styleRegExp                 = require('../reg-exp/style-reg-exp');
 
 
 module.exports = function( _chunk, _options, _index ) {

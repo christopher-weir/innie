@@ -1,6 +1,6 @@
 'use strict';
 
-var elementRegExp           = require('../element-reg-exp');
+var elementRegExp           = require('../reg-exp/element-reg-exp');
 
 /**
  *
