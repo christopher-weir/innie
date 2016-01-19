@@ -1,7 +1,7 @@
 'use strict';
 
-var cssClassRegExp          = require('../css-class-reg-exp');
-var elementRegExp           = require('../element-reg-exp');
+var cssClassRegExp          = require('../reg-exp/css-class-reg-exp');
+var elementRegExp           = require('../reg-exp/element-reg-exp');
 
 
 module.exports = function( _class ) {

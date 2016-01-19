@@ -1,6 +1,6 @@
 'use strict';
 
-var cssClassRegExp          = require('../css-class-reg-exp');
+var cssClassRegExp          = require('../reg-exp/css-class-reg-exp');
 
 
 module.exports = function( _name, _src, _options ) {
