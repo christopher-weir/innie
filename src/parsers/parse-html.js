@@ -2,14 +2,6 @@
 
 var utils           = require('../utils');
 
-/**
- * Parses the given document and creates tokens that can be used later when
- * compiling the file.
- * @method function
- * @param  {String} _source  The origional source
- * @param  {Object} _options The options object
- * @return {Object}          The tokens object
- */
 module.exports = function( _tokens, _options ) {
 
     var options = _options;

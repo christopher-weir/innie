@@ -18,6 +18,11 @@ module.exports = function( _options ) {
 
     var style       = loader.load( options.style );
 
+    /**
+     * The tokens object stores any usefull data for the creation of the
+     * innie instance
+     * @type {Object}
+     */
     var tokens  = {
         tokens: [],
         split_source: utils.splitSource( file )
