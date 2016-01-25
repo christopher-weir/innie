@@ -25,7 +25,7 @@ module.exports = function( _options ) {
      */
     var tokens  = {
         tokens: [],
-        split_source: utils.splitSource( file )
+        split_source: utils.splitHtml( file )
     };
 
     return new Promise(function( _resolve, _reject ){

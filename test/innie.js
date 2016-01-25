@@ -42,6 +42,8 @@ describe('Innie Style Inliner:', function() {
 
         importTest('Parse Css', './test-parsers/test-parse-css');
 
+        importTest('Parse React', './test-parsers/test-parse-react');
+
     });
 
 
