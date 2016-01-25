@@ -10,19 +10,17 @@
 module.exports = function( _style ) {
 
     var i = 0;
-    var styleSplit = _style.split(';');
-    var properties = [];
 
-    var anyChar     = '[\\s\\S]*?';
-    var styleRegExp = new RegExp(
-      '(style:' + anyChar + '{' + anyChar + '})'
-    );
+    var styleSplit = _style.split(new RegExp('({[\\s\\S]*?})'));
+    styleSplit = styleSplit[ 1 ].replace(/[{}]+/g, '').split(',');
+
+    var properties = [];
 
     for ( i = 0; i < styleSplit.length; i++) {
 
         if( styleSplit[i] !== '"' ){
 
-            properties.push( styleSplit[i].replace( styleRegExp, '') );
+            properties.push( styleSplit[i].trim() );
 
         }
     }

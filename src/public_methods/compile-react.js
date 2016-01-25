@@ -7,7 +7,7 @@ var path    = require('path');
 
 // load up a file and
 module.exports = function( _options ) {
-    console.log('start');
+
     var options = _options;
     var loader  = loaders.fs();
 
@@ -28,14 +28,12 @@ module.exports = function( _options ) {
         split_source: utils.splitReact( file )
     };
 
-    console.log(tokens);
-
     return new Promise(function( _resolve, _reject ){
 
         tokens.tokens  = parsers.parseReact( tokens, options );
 
         tokens.tokens  = parsers.parseCss( tokens, style, options );
-        _resolve('saved');
+        console.log(tokens);
         //createHtml = utils.createHtmlFile( tokens );
 
         // loaders.save( location + name, createHtml )

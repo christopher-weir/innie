@@ -23,11 +23,11 @@ module.exports = function( _tokens, _options ) {
             i++;
             return;
         }
-        console.log(_chunk);
+
         // create the token for the chunk containing a class
-        tokens.push( utils.createToken( _chunk, options, i ) );
+        tokens.push( utils.createReactToken( _chunk, options, i ) );
         i++;
     });
-
+    console.log(tokens);
     return tokens;
 };
