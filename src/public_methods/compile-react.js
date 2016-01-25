@@ -16,7 +16,7 @@ module.exports = function( _options ) {
 
     var name        = options.file_name || path.basename( options.file );
     var location    = options.location;
-    var createHtml  = '';
+    var createReact  = '';
 
     /**
      * The tokens object stores any usefull data for the creation of the
@@ -33,8 +33,10 @@ module.exports = function( _options ) {
         tokens.tokens  = parsers.parseReact( tokens, options );
 
         tokens.tokens  = parsers.parseCss( tokens, style, options );
-        console.log(tokens);
-        //createHtml = utils.createHtmlFile( tokens );
+
+        createReact = utils.createReactFile( tokens );
+
+        console.log(createReact);
 
         // loaders.save( location + name, createHtml )
         //     .then(function( data ){

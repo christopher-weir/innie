@@ -28,6 +28,6 @@ module.exports = function( _tokens, _options ) {
         tokens.push( utils.createReactToken( _chunk, options, i ) );
         i++;
     });
-    console.log(tokens);
+
     return tokens;
 };

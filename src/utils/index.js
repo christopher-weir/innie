@@ -13,6 +13,8 @@ exports.getArrayOfClasses           = require('./markup/get-array-of-classes');
 exports.getStyleProperties          = require('./markup/get-style-properties');
 exports.createHtmlNode              = require('./markup/create-html-node');
 exports.createHtmlFile              = require('./markup/create-html-file');
+exports.createReactNode             = require('./markup/create-react-node');
+exports.createReactFile             = require('./markup/create-react-file');
 exports.splitHtml                   = require('./markup/split-html');
 exports.splitReact                  = require('./markup/split-react');
 

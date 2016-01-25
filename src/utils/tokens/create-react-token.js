@@ -12,13 +12,15 @@ module.exports = function( _chunk, _options, _index ) {
     var style = '';
     var hasStyle = false;
     var styleProperties = [];
-    _chunk = _chunk.replace(/'/g,'"');
+    //_chunk = _chunk.replace(/'/g,'"');
 
     if( _chunk.split( reactStyleRegExp() )[1] ){
         hasStyle = true;
         style = _chunk.split( reactStyleRegExp() )[1];
         styleProperties = getReactStyleProperties( style );
     }
+
+    var classChunk = _chunk.replace(/'/g,'"').split( reactClassRegExp() )[1];
 
     var token = {
         index       : _index || 0,
@@ -30,8 +32,8 @@ module.exports = function( _chunk, _options, _index ) {
             compiled    : ''
         },
         class       : {
-            original    : _chunk.split( reactClassRegExp() )[1],
-            all         : getReactArrayOfClasses( _chunk.split( reactClassRegExp() )[1] ),
+            original    : classChunk,
+            all         : getReactArrayOfClasses( classChunk ),
             matches     : [],
             unmatched   : []
         }
