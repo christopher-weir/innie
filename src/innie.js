@@ -47,6 +47,19 @@ exports.Innie = function( _opts ) {
         });
 
     };
+
+    this.compileReact = function( _options ){
+
+        var options = utils.extend( self.options, _options || {});
+
+        return new Promise(function( _resolve, _reject ){
+            publicMethods.compileReact( options )
+                .then(function( data ){
+                    _resolve('saved');
+                });
+        });
+
+    };
 };
 
 
@@ -54,3 +67,4 @@ exports.Innie = function( _opts ) {
 defaultInstance         = new exports.Innie();
 exports.options         = defaultInstance.options;
 exports.compileHtml     = defaultInstance.compileHtml;
+exports.compileReact    = defaultInstance.compileReact;

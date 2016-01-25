@@ -6,6 +6,7 @@ exports.escapeRegExp                = require('./reg-exp/escape-reg-exp');
 exports.elementRegExp               = require('./reg-exp/element-reg-exp');
 exports.styleRegExp                 = require('./reg-exp/style-reg-exp');
 exports.reactRegExp                 = require('./reg-exp/react-reg-exp');
+exports.reactStyleRegExp            = require('./reg-exp/react-style-reg-exp');
 exports.cssClassRegExp              = require('./reg-exp/css-class-reg-exp');
 
 exports.getArrayOfClasses           = require('./markup/get-array-of-classes');
@@ -20,3 +21,4 @@ exports.getClassProps               = require('./css/get-class-props');
 exports.mergeProps                  = require('./css/merge-props');
 
 exports.createToken                 = require('./tokens/create-token');
+exports.createReactToken            = require('./tokens/create-react-token');
