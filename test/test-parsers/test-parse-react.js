@@ -12,6 +12,7 @@ var chunk = 'React.createElement("div",{ className: "test agagin #new", style: {
 var testBasicOptions = {
     hook: '#'
 };
+var token = utils.createReactToken( chunk, testBasicOptions, 0 );
 
 describe('Parse React file', function(){
 
@@ -25,7 +26,6 @@ describe('Parse React file', function(){
 
 
 describe('React Token', function(){
-    var token = utils.createReactToken( chunk, testBasicOptions, 0 );
 
     it('Token should be an object', function(){
         expect( token  )
@@ -61,4 +61,13 @@ describe('React Token', function(){
     // });
 
 
+});
+
+
+describe('React Node', function(){
+
+    it('New node should return a string', function(){
+        expect( utils.createReactNode( token )  )
+            .to.be.a('string');
+    });
 });
