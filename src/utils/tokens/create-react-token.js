@@ -1,7 +1,8 @@
 'use strict';
 
-var getReactArrayOfClasses       = require('../markup/get-react-array-of-classes');
+var getReactArrayOfClasses      = require('../markup/get-react-array-of-classes');
 var getReactStyleProperties     = require('../markup/get-react-style-properties');
+var getReactOrigionalClass      = require('../markup/get-react-origional-class');
 var reactClassRegExp            = require('../reg-exp/react-class-reg-exp');
 var reactStyleRegExp            = require('../reg-exp/react-style-reg-exp');
 
@@ -20,7 +21,7 @@ module.exports = function( _chunk, _options, _index ) {
         styleProperties = getReactStyleProperties( style );
     }
 
-    var classChunk = _chunk.replace(/'/g,'"').split( reactClassRegExp() )[1];
+    var classChunk = getReactOrigionalClass( _chunk );
 
     var token = {
         index       : _index || 0,
