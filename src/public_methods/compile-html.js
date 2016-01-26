@@ -12,11 +12,12 @@ module.exports = function( _options ) {
     var loader  = loaders.fs();
 
     var file        = loader.load( options.file );
+    var style       = loader.load( options.style );
+
     var name        = options.file_name || path.basename( options.file );
     var location    = options.location;
     var createHtml  = '';
 
-    var style       = loader.load( options.style );
 
     /**
      * The tokens object stores any usefull data for the creation of the
@@ -28,13 +29,11 @@ module.exports = function( _options ) {
         split_source: utils.splitHtml( file )
     };
 
+    tokens.tokens  = parsers.parseHtml( tokens, style, options );
+
+    createHtml = utils.createHtmlFile( tokens );
+
     return new Promise(function( _resolve, _reject ){
-
-        tokens.tokens  = parsers.parseHtml( tokens, options );
-
-        tokens.tokens  = parsers.parseCss( tokens, style, options );
-
-        createHtml = utils.createHtmlFile( tokens );
 
         loaders.save( location + name, createHtml )
             .then(function( data ){

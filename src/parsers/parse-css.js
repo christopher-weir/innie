@@ -13,7 +13,7 @@ var utils = require('../utils');
 module.exports = function( _tokens, _source, _options ) {
 
     var i = 0;
-    var tokens  = _tokens.tokens;
+    var tokens  = _tokens;
     var options = _options;
 
     // clean out all the double spaces and whitespace

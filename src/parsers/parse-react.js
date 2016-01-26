@@ -1,8 +1,9 @@
 'use strict';
 
 var utils           = require('../utils');
+var parseCss        = require('./parse-css');
 
-module.exports = function( _tokens, _options ) {
+module.exports = function( _tokens, _style, _options ) {
 
     var options = _options;
     var i       = 0;
@@ -28,6 +29,8 @@ module.exports = function( _tokens, _options ) {
         tokens.push( utils.createReactToken( _chunk, options, i ) );
         i++;
     });
+
+    tokens = parseCss( tokens, _style, options );
 
     return tokens;
 };

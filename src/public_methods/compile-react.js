@@ -28,13 +28,11 @@ module.exports = function( _options ) {
         split_source: utils.splitReact( file )
     };
 
+    tokens.tokens  = parsers.parseReact( tokens, style, options );
+
+    createReact = utils.createReactFile( tokens );
+
     return new Promise(function( _resolve, _reject ){
-
-        tokens.tokens  = parsers.parseReact( tokens, options );
-
-        tokens.tokens  = parsers.parseCss( tokens, style, options );
-
-        createReact = utils.createReactFile( tokens );
 
         loaders.save( location + name, createReact )
             .then(function( data ){
