@@ -43,16 +43,16 @@ describe('Css Parse Utils', function(){
 
     });
 
-    describe('mergeProps', function(){
-
-        it('Should return a string and be equal, new prop shoulkd override the old', function(){
-
-            expect( utils.mergeProps( testProps, testProps2 )  )
-                .to.be.a('string')
-                .to.equal('opacity: 0.5; pointer-events: all; text-decoration: underline !important; display: none;');
-        });
-
-    });
+    // describe('mergeProps', function(){
+    //
+    //     it('Should return a string and be equal, new prop shoulkd override the old', function(){
+    //
+    //         expect( utils.mergeProps( testProps, testProps2 )  )
+    //             .to.be.a('string')
+    //             .to.equal('opacity: 0.5; pointer-events: all; text-decoration: underline !important; display: none;');
+    //     });
+    //
+    // });
 
 
 });

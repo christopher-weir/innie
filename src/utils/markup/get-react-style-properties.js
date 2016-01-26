@@ -19,8 +19,7 @@ module.exports = function( _style ) {
     for ( i = 0; i < styleSplit.length; i++) {
 
         if( styleSplit[i] !== '"' ){
-
-            properties.push( styleSplit[i].trim() );
+            properties.push( styleSplit[i].replace(/[']+/g, '').trim() );
 
         }
     }

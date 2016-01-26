@@ -12,7 +12,7 @@ module.exports = function( _string ) {
 
     // split the string at "
     // should return something like [ 'class="', 'class-name', '"' ]
-    classAttr = _string.split('"');
+    classAttr = _string.split('\'');
 
     // split the css classes
     classAttr = classAttr[1].trim().split(/\s+/);

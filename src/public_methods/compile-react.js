@@ -36,11 +36,9 @@ module.exports = function( _options ) {
 
         createReact = utils.createReactFile( tokens );
 
-        console.log(createReact);
-
-        // loaders.save( location + name, createHtml )
-        //     .then(function( data ){
-        //         _resolve('saved');
-        //     });
+        loaders.save( location + name, createReact )
+            .then(function( data ){
+                _resolve('saved');
+            });
     });
 };

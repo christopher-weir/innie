@@ -22,6 +22,7 @@ var defaultOptions = {
     location    : './',
     file_name   : null,
     file        : '',
+    type        : '',
     style       : ''
 };
 var defaultInstance = null;
@@ -49,7 +50,7 @@ exports.Innie = function( _opts ) {
     };
 
     this.compileReact = function( _options ){
-
+        self.options.type = 'react';
         var options = utils.extend( self.options, _options || {});
 
         return new Promise(function( _resolve, _reject ){

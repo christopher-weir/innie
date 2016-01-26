@@ -53,6 +53,19 @@ describe('React Token', function(){
             .to.eql([ '"color": "red"' ]);
     });
 
+
+
+    // should take React.createElement(
+    //   'div',
+    //   { className: 'test agagin #new', style: { 'color': 'red' } },
+    //   'Seconds Elapsed: ',
+    //   this.state.secondsElapsed
+    // );
+    //
+    // and return
+    // className: 'test agagin #new'
+    //
+
     // it('Token class should be a string and matching', function(){
     //     expect( utils.createReactToken( chunk )  )
     //         .to.have.deep.property('class.original')

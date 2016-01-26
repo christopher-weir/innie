@@ -17,6 +17,7 @@ exports.createReactNode             = require('./markup/create-react-node');
 exports.createReactFile             = require('./markup/create-react-file');
 exports.splitHtml                   = require('./markup/split-html');
 exports.splitReact                  = require('./markup/split-react');
+exports.getReactOrigionalClass      = require('./markup/get-react-origional-class');
 
 exports.getMatchingClass            = require('./css/get-matching-class');
 exports.getClassProps               = require('./css/get-class-props');

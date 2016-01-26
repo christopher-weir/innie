@@ -12,7 +12,6 @@ module.exports = function( _tokens ) {
     for ( i = 0; i < tokens.length; i++ ) {
 
         var cleanNode = createNode( tokens[ i ] );
-        console.log(cleanNode);
         original[ tokens[ i ].index ] = cleanNode;
     }
 
