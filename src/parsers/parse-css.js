@@ -26,9 +26,7 @@ module.exports = function( _tokens, _source, _options ) {
         var matchingClass = utils.getMatchingClass( tokens[ i ].class.matches[ 0 ], source, options );
 
         if( matchingClass ){
-
-            tokens[ i ].style.compiled = utils.mergeProps( utils.getClassProps( matchingClass ), tokens[ i ].style.properties );
-
+            tokens[ i ].style.compiled = utils.mergeProps( utils.getClassProps( matchingClass ), tokens[ i ].style.properties, options );
         }
     }
 

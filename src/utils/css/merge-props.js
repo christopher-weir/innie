@@ -1,11 +1,12 @@
 'use strict';
 
 
-module.exports = function( _newProps, _oldProps ) {
+module.exports = function( _newProps, _oldProps, _options ) {
 
     var i = 0;
     var oldProps    = _oldProps || []; // props from the style attr
     var classProps  = oldProps.concat( _newProps );
+    var options     = _options;
 
     var cleanProps = {};
     var params = '';
@@ -20,8 +21,14 @@ module.exports = function( _newProps, _oldProps ) {
     }
 
     for (var _key in cleanProps) {
-        params = params + _key + ':' + cleanProps[ _key ] + '; ';
-    }
 
+        switch ( options.type ) {
+            case 'react':
+                params = params + '\'' + _key + '\':' + '\'' + cleanProps[ _key ].trim() + '\',';
+                break;
+            default:
+                params = params + _key + ':' + cleanProps[ _key ] + '; ';
+        }
+    }
     return params.trim();
 };
