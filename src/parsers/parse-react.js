@@ -16,11 +16,9 @@ module.exports = function( _tokens, _style, _options ) {
     */
     utils.each( _tokens.split_source, function ( _chunk ) {
 
-        // check if the chunk has a class attr to parse
+        // check if the chunk is createElement and has className
         // if not return
-        var hasClass = _chunk.includes('React.createElement');
-
-        if (!_chunk || !hasClass) {
+        if (!_chunk || !_chunk.includes('React.createElement') || !_chunk.includes('className') ) {
             i++;
             return;
         }
