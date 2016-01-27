@@ -10,10 +10,6 @@ var elementRegExp           = require('../reg-exp/element-reg-exp');
  */
 module.exports = function( _token ) {
 
-
-    // find the type of element eg '<div', '<article' etc
-    var elementStart = String(  _token.original.split( elementRegExp( '<',' ' ) )[ 1 ] ).replace(/\s\s+/g, ' ');
-
     var _style = ' style: {' + _token.style.compiled + '}';
 
     // add the unmatched classes back to the element
