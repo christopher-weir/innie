@@ -12,7 +12,7 @@ var anyChar     = '[\\s\\S]*?';
 module.exports = function( ) {
 
     var styleRegExp = new RegExp(
-      '(React.createElement' + anyChar + ';)'
+      '({' + anyChar + '})'
     );
 
     return styleRegExp;

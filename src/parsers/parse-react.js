@@ -18,7 +18,7 @@ module.exports = function( _tokens, _style, _options ) {
 
         // check if the chunk is createElement and has className
         // if not return
-        if (!_chunk || !_chunk.includes('React.createElement') || !_chunk.includes('className') ) {
+        if (!_chunk || !_chunk.includes('className') ) {
             i++;
             return;
         }
