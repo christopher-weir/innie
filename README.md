@@ -26,10 +26,12 @@ React
 #####This:
 ```Javascript
     React.createElement(
-      'div',
-      { className: 'class-name class-name-01 #replace-me' },
-      'Seconds Elapsed: ',
-      this.state.secondsElapsed
+        'div',
+        { 
+            className: 'class-name class-name-01 #replace-me' 
+        },
+        'Seconds Elapsed: ',
+        this.state.secondsElapsed
     );
 ```
 #####Plus This:
@@ -42,10 +44,13 @@ React
 #####Equals This:
 ```Javascript
     React.createElement(
-      'div',
-      { className: 'class-name class-name-01', style: { 'color': 'red', 'background-color': 'green' } },
-      'Seconds Elapsed: ',
-      this.state.secondsElapsed
+        'div',
+        { 
+            className: 'class-name class-name-01', 
+            style: { 'color': 'red', 'background-color': 'green' } 
+        },
+        'Seconds Elapsed: ',
+        this.state.secondsElapsed
     );
 ```
 <br />
