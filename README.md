@@ -5,12 +5,10 @@ Css class to style in-liner. Sometimes you just need to inline your styles. This
 <br />
 Html
 --------
-<br />
 ##### This:
 ```html
     <div class="class-name class-name-01 #replace-me"></div>
 ```
-<br />
 #####Plus This:
 ```css
     .replace-me {
@@ -18,14 +16,13 @@ Html
         background-color: green;
     }
 ```
-<br />
 #####Equals This:
 ```html
     <div class="class-name class-name-01" style="color: red; background-color: green;"></div>
 ```
+<br />
 React
 --------
-<br />
 #####This:
 ```Javascript
     React.createElement(
@@ -35,7 +32,6 @@ React
       this.state.secondsElapsed
     );
 ```
-<br />
 #####Plus This:
 ```css
     .replace-me {
@@ -43,7 +39,6 @@ React
         background-color: green;
     }
 ```
-<br />
 #####Equals This:
 ```Javascript
     React.createElement(
