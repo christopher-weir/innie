@@ -3,10 +3,10 @@ Css class to style in-liner. Sometimes you just need to inline your styles. This
 
 ---
 <br />
-Features
+Html
 --------
 <br />
-#####Html This:
+##### This:
 ```html
     <div class="class-name class-name-01 #replace-me"></div>
 ```
@@ -23,8 +23,10 @@ Features
 ```html
     <div class="class-name class-name-01" style="color: red; background-color: green;"></div>
 ```
+React
+--------
 <br />
-#####React This:
+#####This:
 ```Javascript
     React.createElement(
       'div',
