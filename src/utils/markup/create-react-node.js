@@ -17,7 +17,7 @@ module.exports = function( _token ) {
     var _style = ' style: {' + _token.style.compiled + '}';
 
     // add the unmatched classes back to the element
-    var _class = 'className: "' + _token.class.unmatched.join(' ') + '"';
+    var _class = 'className: \'' + _token.class.unmatched.join(' ') + '\'';
 
     // create the new node
     var node = _token.original;
