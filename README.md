@@ -6,7 +6,7 @@ Css class to style in-liner. Sometimes you just need to inline your styles. This
 Features
 --------
 <br />
-#####This:
+#####Html This:
 ```html
     <div class="class-name class-name-01 #replace-me"></div>
 ```
@@ -22,6 +22,34 @@ Features
 #####Equals This:
 ```html
     <div class="class-name class-name-01" style="color: red; background-color: green;"></div>
+```
+<br />
+#####React This:
+```Javascript
+    React.createElement(
+      'div',
+      { className: 'class-name class-name-01 #replace-me' },
+      'Seconds Elapsed: ',
+      this.state.secondsElapsed
+    );
+```
+<br />
+#####Plus This:
+```css
+    .replace-me {
+        color: red;
+        background-color: green;
+    }
+```
+<br />
+#####Equals This:
+```Javascript
+    React.createElement(
+      'div',
+      { className: 'class-name class-name-01', style: { 'color': 'red', 'background-color': 'green' } },
+      'Seconds Elapsed: ',
+      this.state.secondsElapsed
+    );
 ```
 <br />
 ##Installation
