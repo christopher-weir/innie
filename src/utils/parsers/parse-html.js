@@ -1,6 +1,6 @@
 'use strict';
 
-var utils           = require('../utils');
+var utils           = require('../../utils');
 var parseCss        = require('./parse-css');
 
 module.exports = function( _tokens, _style, _options ) {

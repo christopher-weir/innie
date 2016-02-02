@@ -1,6 +1,6 @@
 'use strict';
 
-var loaders = require('./loaders');
+var loaders = require('./utils/loaders');
 var utils = require('./utils');
 var publicMethods = require('./public_methods');
 

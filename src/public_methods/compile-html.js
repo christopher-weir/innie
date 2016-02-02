@@ -1,7 +1,7 @@
 'use strict';
 
-var loaders = require('../loaders');
-var parsers = require('../parsers');
+var loaders = require('../utils/loaders');
+var parsers = require('../utils/parsers');
 var utils   = require('../utils');
 var path    = require('path');
 

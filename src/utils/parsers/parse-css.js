@@ -1,6 +1,6 @@
 'use strict';
 
-var utils = require('../utils');
+var utils = require('../../utils');
 
 /**
  * parse the given css to find any matching classes to the ones supplied.
