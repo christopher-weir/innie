@@ -2,17 +2,33 @@
 
 var innie       = require('../../src/innie');
 var utils       = require('../../src/utils');
-var parsers     = require('../../src/parsers');
+var parsers     = require('../../src/utils/parsers');
 var expect      = require('chai').expect;
 
+var options = {
+    hook        : '#',
+    type        : 'react'
+};
+var testReactFile = '"use strict"; var React = ""; var Timer = React.createClass({ displayName: "Timer", getInitialState: function getInitialState() { return { secondsElapsed: 0 }; }, tick: function tick() { this.setState({ secondsElapsed: this.state.secondsElapsed + 1 }); }, componentDidMount: function componentDidMount() { this.interval = setInterval(this.tick, 1000); }, componentWillUnmount: function componentWillUnmount() { clearInterval(this.interval); }, render: function render() { return React.createElement( "div", { className: "test agagin #new", style: { "color": "red" } }, "Seconds Elapsed: ", this.state.secondsElapsed, React.createElement( "p", { className: "test agagin #awefweaf", style: { "color": "red" } }, "this isa content", React.createElement( "p", { className: "test agagin #new", style: {"color":"red","font-size":"26px","margin-bottom":"1em !important"} }, "this isa content" ) ) ); } }); module.exports = Timer;';
+var testStyleFile = '.faf-intro { white-space: pre-wrap; text-align: center; } .faf-intro p a { font-weight: 400 !important; color: #dc94c0 !important; } .faf-intro p a:hover { text-decoration: underline !important; } .faf-intro h1 { font-size: 26px; margin-bottom: 1em !important; } .submit-form.inactive { opacity: 0.5; pointer-events: none; } .new { color: purple; background-color: green; } .awefweaf { font-size: 26px; margin-bottom: 1em !important; } .awefaaaaweaf { font-weight: 400 !important; color: #dc94c0 !important; } ';
 
-var testReactFile = 'var Timer = React.createClass({displayName: "Timer",getInitialState: function getInitialState() {return { secondsElapsed: 0 };},tick: function tick() {this.setState({ secondsElapsed: this.state.secondsElapsed + 1 });},componentDidMount: function componentDidMount() {this.interval = setInterval(this.tick, 1000);},componentWillUnmount: function componentWillUnmount() {clearInterval(this.interval);},render: function render() {return React.createElement("div",{ className: "test agagin #new", style: { "color": "red" } },"Seconds Elapsed:",this.state.secondsElapsed);}});';
 var splitSrc = utils.splitReact( testReactFile );
 var chunk = 'React.createElement("div",{ className: "test agagin #new", style: { "color": "red" } },"Seconds Elapsed: ",this.state.secondsElapsed);';
 var testBasicOptions = {
     hook: '#'
 };
 var token = utils.createReactToken( chunk, testBasicOptions, 0 );
+
+
+
+var tokens  = {
+    tokens: [],
+    split_source: utils.splitReact( testReactFile )
+};
+
+tokens.tokens  = parsers.parseReact( tokens, testStyleFile, options );
+
+
 
 describe('Parse React file', function(){
 

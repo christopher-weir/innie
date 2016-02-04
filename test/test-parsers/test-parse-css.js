@@ -2,7 +2,7 @@
 
 var innie       = require('../../src/innie');
 var utils       = require('../../src/utils');
-var parsers     = require('../../src/parsers');
+var parsers     = require('../../src/utils/parsers');
 var expect      = require('chai').expect;
 
 

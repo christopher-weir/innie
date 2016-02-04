@@ -26,11 +26,11 @@ describe('Innie Style Inliner:', function() {
 
     describe('Util', function(){
 
-        importTest('Extend', './test-utils/test-extend');
+        importTest('Markup', './test-utils/markup');
 
-        importTest('Get Style Properties', './test-utils/test-get-style-properties');
-
-        importTest('Get Array Of Classes', './test-utils/test-get-array-of-classes');
+        // importTest('Get Style Properties', './test-utils/test-get-style-properties');
+        //
+        // importTest('Get Array Of Classes', './test-utils/test-get-array-of-classes');
 
     });
 
@@ -38,11 +38,11 @@ describe('Innie Style Inliner:', function() {
 
     describe('Parsers', function(){
 
-        importTest('Parse Html', './test-parsers/test-parse-html');
+        // importTest('Parse Html', './test-parsers/test-parse-html');
 
         importTest('Parse Css', './test-parsers/test-parse-css');
 
-        importTest('Parse React', './test-parsers/test-parse-react');
+        // importTest('Parse React', './test-parsers/test-parse-react');
 
     });
 
