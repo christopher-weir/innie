@@ -1,6 +1,6 @@
-exports.extend                      = require('./extend');
-exports.each                        = require('./each');
-exports.validateOptions             = require('./validate-options');
+exports.extend                      = require('./helpers/extend');
+exports.each                        = require('./helpers/each');
+exports.validateOptions             = require('./helpers/validate-options');
 
 exports.escapeRegExp                = require('./reg-exp/escape-reg-exp');
 exports.elementRegExp               = require('./reg-exp/element-reg-exp');

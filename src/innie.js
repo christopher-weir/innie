@@ -1,8 +1,8 @@
 'use strict';
 
-var loaders = require('./utils/loaders');
-var utils = require('./utils');
-var publicMethods = require('./public_methods');
+var loaders         = require('./utils/loaders');
+var utils           = require('./utils');
+var publicMethods   = require('./public_methods');
 
 /**
  * innie version number as a string.
