@@ -5,9 +5,6 @@ var utils       = require('../../src/utils');
 var patterns    = require('./test-patterns/markup.js');
 var expect      = require('chai').expect;
 
-
-console.log( patterns.htmlNodeToken() );
-
 describe('Create html file: create-html-file.js', function() {
 
 });
