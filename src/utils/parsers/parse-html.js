@@ -3,24 +3,17 @@
 var utils           = require('../../utils');
 var parseCss        = require('./parse-css');
 
-module.exports = function( _tokens, _style, _options ) {
+module.exports = function( _src, _style, _options ) {
 
     var options = _options;
     var i       = 0;
     var tokens  = [];
 
-    /*!
-    * Loop over the source, split via the tag/var/comment regular expression splitter.
-    * Send each chunk to the appropriate parser.
-    */
-
-    utils.each( _tokens.split_source, function ( _chunk ) {
+    utils.each( _src, function ( _chunk ) {
 
         // check if the chunk has a class attr to parse
         // if not return
-        var hasClass = _chunk.includes('class="');
-
-        if (!_chunk || !hasClass) {
+        if (!_chunk || !_chunk.includes('class="')) {
             i++;
             return;
         }
