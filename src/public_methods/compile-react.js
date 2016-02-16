@@ -16,7 +16,7 @@ module.exports = function( _options ) {
 
     var name        = options.file_name || path.basename( options.file );
     var location    = options.location;
-    var createReact  = '';
+    var source      = utils.splitReact( file );
 
     /**
      * The tokens object stores any usefull data for the creation of the
@@ -24,17 +24,15 @@ module.exports = function( _options ) {
      * @type {Object}
      */
     var tokens  = {
-        tokens: [],
-        split_source: utils.splitReact( file )
+        tokens: parsers.parseReact( source, style, options ),
+        split_source: source
     };
 
-    tokens.tokens  = parsers.parseReact( tokens, style, options );
-
-    createReact = utils.createReactFile( tokens );
+    var newReactFile = utils.createReactFile( tokens );
 
     return new Promise(function( _resolve, _reject ){
 
-        loaders.save( location + name, createReact )
+        loaders.save( location + name, newReactFile )
             .then(function( data ){
                 _resolve('saved');
             });
