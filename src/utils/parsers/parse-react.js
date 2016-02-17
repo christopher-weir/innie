@@ -5,9 +5,9 @@ var parseCss        = require('./parse-css');
 
 module.exports = function( _src, _style, _options ) {
 
-    var options = _options;
     var i       = 0;
     var tokens  = [];
+    var options = _options;
 
     utils.each( _src, function ( _chunk ) {
 

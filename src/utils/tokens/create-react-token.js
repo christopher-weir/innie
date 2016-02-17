@@ -2,30 +2,31 @@
 
 var getReactArrayOfClasses      = require('../markup/get-react-array-of-classes');
 var getReactStyleProperties     = require('../markup/get-react-style-properties');
-var getReactOrigionalClass      = require('../markup/get-react-origional-class');
+var getReactOrigionalClasses    = require('../markup/get-react-origional-classes');
 var reactClassRegExp            = require('../reg-exp/react-class-reg-exp');
 var reactStyleRegExp            = require('../reg-exp/react-style-reg-exp');
 
 
 module.exports = function( _chunk, _options, _index ) {
 
-    var i = 0;
-    var style = '';
-    var hasStyle = false;
+    var i               = 0;
+    var style           = '';
+    var hasStyle        = false;
     var styleProperties = [];
-    //_chunk = _chunk.replace(/'/g,'"');
 
-    if( _chunk.split( reactStyleRegExp() )[1] ){
+    var chunk = _chunk;
+    var chunkSplit = chunk.split( reactStyleRegExp() )[1];
+    var chunkClasses = getReactOrigionalClasses( chunk );
+
+    if( chunkSplit ){
         hasStyle = true;
-        style = _chunk.split( reactStyleRegExp() )[1];
+        style = chunkSplit;
         styleProperties = getReactStyleProperties( style );
     }
 
-    var classChunk = getReactOrigionalClass( _chunk );
-
     var token = {
         index       : _index || 0,
-        original    : _chunk,
+        original    : chunk,
         style       : {
             has_style   : hasStyle,
             original    : style,
@@ -33,8 +34,8 @@ module.exports = function( _chunk, _options, _index ) {
             compiled    : ''
         },
         class       : {
-            original    : classChunk,
-            all         : getReactArrayOfClasses( classChunk ),
+            original    : chunkClasses,
+            all         : getReactArrayOfClasses( chunkClasses ),
             matches     : [],
             unmatched   : []
         }
