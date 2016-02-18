@@ -2,6 +2,6 @@
 
 var isArray;
 
-module.exports = function(obj) {
-    return (obj) ? (typeof obj === 'object' && Object.prototype.toString.call(obj).indexOf() !== -1) : false;
+module.exports = function( _array ) {
+    return ( _array ) ? ( Object.prototype.toString.call(_array) === '[object Array]' ) : false;
 };

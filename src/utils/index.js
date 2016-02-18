@@ -1,5 +1,7 @@
 exports.extend                      = require('./helpers/extend');
 exports.each                        = require('./helpers/each');
+exports.isArray                     = require('./helpers/is-array');
+exports.isObject                    = require('./helpers/is-object');
 exports.validateOptions             = require('./helpers/validate-options');
 
 exports.escapeRegExp                = require('./reg-exp/escape-reg-exp');

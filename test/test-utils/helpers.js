@@ -32,3 +32,36 @@ describe('Extend', function() {
     });
 
 });
+
+
+describe('Is Array', function() {
+
+    var testArray = ['1','2','3'];
+
+    it('Should be an Array return a Boolean and be true', function(){
+
+        expect( utils.isArray( testArray ) )
+            .to.be.a('boolean')
+            .to.equal(true);
+
+    });
+
+});
+
+
+describe('Is Object', function() {
+
+    var testObject = {
+        key_01: 'testObject1 key_01',
+        key_02: 'testObject1 key_02'
+    };
+
+    it('Should be an Object return a Boolean and be true', function(){
+
+        expect( utils.isObject( testObject ) )
+            .to.be.a('boolean')
+            .to.equal(true);
+
+    });
+
+});

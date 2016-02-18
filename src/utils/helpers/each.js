@@ -1,5 +1,5 @@
 'use strict';
-var isArray = require('./is-array');
+var isObject = require('./is-object');
 
 /**
  * Iterate over an array or object.
@@ -10,7 +10,7 @@ var isArray = require('./is-array');
 module.exports = function(obj, fn) {
     var i, l;
 
-    if (isArray(obj)) {
+    if (isObject(obj)) {
         i = 0;
         l = obj.length;
         for (i; i < l; i += 1) {
