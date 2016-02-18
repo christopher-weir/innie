@@ -26,7 +26,10 @@ describe('Innie Style Inliner:', function() {
 
     describe('Util', function(){
 
+        importTest('Helpers', './test-utils/helpers');
+
         importTest('Markup', './test-utils/markup');
+
 
         // importTest('Get Style Properties', './test-utils/test-get-style-properties');
         //
