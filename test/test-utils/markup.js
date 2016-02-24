@@ -46,3 +46,22 @@ describe('Create react node: create-react-node.js', function() {
 
     });
 });
+
+
+describe('Split React File: split-react.js', function() {
+
+    it('Should return an array', function(){
+
+        expect( utils.splitReact( patterns.reactFile() ) )
+            .to.be.an('array');
+
+    });
+
+    it('Should be matching', function(){
+
+        expect( utils.splitReact( patterns.reactFile() ) )
+            .to.be.an('array')
+            .to.eql( patterns.reactSplitFileExpected() );
+
+    });
+});
