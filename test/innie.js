@@ -30,6 +30,8 @@ describe('Innie Style Inliner:', function() {
 
         importTest('Markup', './test-utils/markup');
 
+        importTest('Css', './test-utils/css');
+
 
         // importTest('Get Style Properties', './test-utils/test-get-style-properties');
         //
