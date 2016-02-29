@@ -27,3 +27,6 @@ exports.mergeProps                  = require('./css/merge-props');
 
 exports.createToken                 = require('./tokens/create-token');
 exports.createReactToken            = require('./tokens/create-react-token');
+
+
+exports.css                         = require('./css');
