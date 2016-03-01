@@ -22,7 +22,6 @@ exports.splitReact                  = require('./markup/split-react');
 exports.getReactOrigionalClasses    = require('./markup/get-react-origional-classes');
 
 exports.getMatchingClass            = require('./css/get-matching-class');
-exports.getClassProps               = require('./css/get-class-props');
 exports.mergeProps                  = require('./css/merge-props');
 
 exports.createToken                 = require('./tokens/create-token');

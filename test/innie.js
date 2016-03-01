@@ -32,32 +32,6 @@ describe('Innie Style Inliner:', function() {
 
         importTest('Css', './test-utils/css');
 
-
-        // importTest('Get Style Properties', './test-utils/test-get-style-properties');
-        //
-        // importTest('Get Array Of Classes', './test-utils/test-get-array-of-classes');
-
-    });
-
-
-
-    describe('Parsers', function(){
-
-        // importTest('Parse Html', './test-parsers/test-parse-html');
-
-        importTest('Parse Css', './test-parsers/test-parse-css');
-
-        // importTest('Parse React', './test-parsers/test-parse-react');
-
-    });
-
-
-
-    describe('Public Methods', function(){
-
-         console.log('TODO test for the public methods');
-
-
     });
 
 
