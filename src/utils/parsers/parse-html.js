@@ -1,6 +1,7 @@
 'use strict';
 
-var utils           = require('../../utils');
+var each            = require('../helpers/each');
+var createToken     = require('../tokens/create-token');
 var parseCss        = require('./parse-css');
 
 module.exports = function( _src, _style, _options ) {
@@ -9,7 +10,7 @@ module.exports = function( _src, _style, _options ) {
     var i       = 0;
     var tokens  = [];
 
-    utils.each( _src, function ( _chunk ) {
+    each( _src, function ( _chunk ) {
 
         // check if the chunk has a class attr to parse
         // if not return
@@ -19,7 +20,7 @@ module.exports = function( _src, _style, _options ) {
         }
 
         // create the token for the chunk containing a class
-        tokens.push( utils.createToken( _chunk, options, i ) );
+        tokens.push( createToken( _chunk, options, i ) );
         i++;
     });
 

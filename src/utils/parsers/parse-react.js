@@ -1,6 +1,8 @@
 'use strict';
 
-var utils           = require('../../utils');
+
+var each            = require('../helpers/each');
+var createReactToken    = require('../tokens/create-react-token');
 var parseCss        = require('./parse-css');
 
 module.exports = function( _src, _style, _options ) {
@@ -9,7 +11,7 @@ module.exports = function( _src, _style, _options ) {
     var tokens  = [];
     var options = _options;
 
-    utils.each( _src, function ( _chunk ) {
+    each( _src, function ( _chunk ) {
 
         // check if the chunk is createElement and has className
         // if not return
@@ -19,7 +21,7 @@ module.exports = function( _src, _style, _options ) {
         }
 
         // create the token for the chunk containing a class
-        tokens.push( utils.createReactToken( _chunk, options, i ) );
+        tokens.push( createReactToken( _chunk, options, i ) );
         i++;
     });
 

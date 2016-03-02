@@ -11,9 +11,7 @@ exports.reactRegExp                 = require('./reg-exp/react-reg-exp');
 exports.reactStyleRegExp            = require('./reg-exp/react-style-reg-exp');
 exports.cssClassRegExp              = require('./reg-exp/css-class-reg-exp');
 
-exports.createToken                 = require('./tokens/create-token');
-exports.createReactToken            = require('./tokens/create-react-token');
-
 
 exports.css                         = require('./css');
 exports.markup                      = require('./markup');
+exports.tokens                      = require('./tokens');
