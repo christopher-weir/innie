@@ -14,14 +14,14 @@ describe('Create html node: create-html-node.js', function() {
 
     it('Should return a string', function(){
 
-        expect( utils.createHtmlNode( patterns.htmlNodeToken() ) )
+        expect( utils.markup.createHtmlNode( patterns.htmlNodeToken() ) )
             .to.be.a('string');
 
     });
 
     it('Should be matching', function(){
 
-        expect( utils.createHtmlNode( patterns.htmlNodeToken() ) )
+        expect( utils.markup.createHtmlNode( patterns.htmlNodeToken() ) )
             .to.be.a('string')
             .to.eql( patterns.htmlNodeTokenExpected() );
 
@@ -33,14 +33,14 @@ describe('Create react node: create-react-node.js', function() {
 
     it('Should return a string', function(){
 
-        expect( utils.createReactNode( patterns.reactNodeToken() ) )
+        expect( utils.markup.createReactNode( patterns.reactNodeToken() ) )
             .to.be.a('string');
 
     });
 
     it('Should be matching', function(){
 
-        expect( utils.createReactNode( patterns.reactNodeToken() ) )
+        expect( utils.markup.createReactNode( patterns.reactNodeToken() ) )
             .to.be.a('string')
             .to.eql( patterns.reactNodeTokenExpected() );
 
@@ -52,14 +52,14 @@ describe('Split React File: split-react.js', function() {
 
     it('Should return an array', function(){
 
-        expect( utils.splitReact( patterns.reactFile() ) )
+        expect( utils.markup.splitReact( patterns.reactFile() ) )
             .to.be.an('array');
 
     });
 
     it('Should be matching', function(){
 
-        expect( utils.splitReact( patterns.reactFile() ) )
+        expect( utils.markup.splitReact( patterns.reactFile() ) )
             .to.be.an('array')
             .to.eql( patterns.reactSplitFileExpected() );
 
