@@ -16,7 +16,7 @@ module.exports = function( _options ) {
 
     var name        = options.file_name || path.basename( options.file );
     var location    = options.location;
-    var source      = utils.splitHtml( file );
+    var source      = utils.markup.splitHtml( file );
 
     /**
      * The tokens object stores any usefull data for the creation of the
@@ -28,7 +28,7 @@ module.exports = function( _options ) {
         split_source: source
     };
 
-    var createHtml = utils.createHtmlFile( tokens );
+    var createHtml = utils.markup.createHtmlFile( tokens );
 
     return new Promise(function( _resolve, _reject ){
 
