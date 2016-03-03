@@ -30,15 +30,15 @@ var defaultInstance = null;
 
 exports.Innie = function( _opts ) {
 
-    utils.validateOptions( _opts );
+    utils.helpers.validateOptions( _opts );
 
     var self = this;
 
-    this.options = utils.extend( defaultOptions, _opts || {});
+    this.options = utils.helpers.extend( defaultOptions, _opts || {});
 
     this.compileHtml = function( _options ){
 
-        var options = utils.extend( self.options, _options || {});
+        var options = utils.helpers.extend( self.options, _options || {});
 
         return new Promise(function( _resolve, _reject ){
             publicMethods.compileHtml( options )
@@ -51,7 +51,7 @@ exports.Innie = function( _opts ) {
 
     this.compileReact = function( _options ){
         self.options.type = 'react';
-        var options = utils.extend( self.options, _options || {});
+        var options = utils.helpers.extend( self.options, _options || {});
 
         return new Promise(function( _resolve, _reject ){
             publicMethods.compileReact( options )

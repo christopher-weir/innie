@@ -17,14 +17,14 @@ describe('Extend', function() {
 
     it('Should return an Object', function(){
 
-        expect( utils.extend( testObject1, testObject2 ) )
+        expect( utils.helpers.extend( testObject1, testObject2 ) )
             .to.be.an('object');
 
     });
 
     it('Should extend the two Objects with the second overriding the first', function(){
 
-        expect( utils.extend( testObject1, testObject2 ) )
+        expect( utils.helpers.extend( testObject1, testObject2 ) )
             .to.have.all.keys('key_01', 'key_02')
             .to.have.property('key_01')
                 .and.equal('testObject2 key_01');
@@ -40,7 +40,7 @@ describe('Is Array', function() {
 
     it('Should be an Array return a Boolean and be true', function(){
 
-        expect( utils.isArray( testArray ) )
+        expect( utils.helpers.isArray( testArray ) )
             .to.be.a('boolean')
             .to.equal(true);
 
@@ -58,7 +58,7 @@ describe('Is Object', function() {
 
     it('Should be an Object return a Boolean and be true', function(){
 
-        expect( utils.isObject( testObject ) )
+        expect( utils.helpers.isObject( testObject ) )
             .to.be.a('boolean')
             .to.equal(true);
 
