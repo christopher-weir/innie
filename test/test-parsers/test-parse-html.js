@@ -189,7 +189,7 @@ describe('Parse Token', function(){
     // clean the source and spit it
     var source = file.replace(/\r\n/g, '\n');
     // the origional src
-    var splitHtml = source.split( utils.elementRegExp( '<','>' ) );
+    var splitHtml = source.split( utils.regExp.elementRegExp( '<','>' ) );
 
     var tokens  = {
         tokens: [],
