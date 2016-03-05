@@ -34,6 +34,8 @@ describe('Innie Style Inliner:', function() {
 
         importTest('RegExp', './test-utils/reg-exp');
 
+        importTest('Parsers', './test-utils/parsers');
+
     });
 
 

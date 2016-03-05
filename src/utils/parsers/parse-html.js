@@ -25,6 +25,5 @@ module.exports = function( _src, _style, _options ) {
     });
 
     tokens = parseCss( tokens, _style, options );
-
     return tokens;
 };

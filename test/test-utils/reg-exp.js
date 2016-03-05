@@ -20,3 +20,8 @@ describe('Element RegExp', function() {
     });
 
 });
+
+
+describe('react-style-reg-exp', function() {
+
+});
