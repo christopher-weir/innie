@@ -24,7 +24,7 @@ module.exports = function( _options ) {
      * @type {Object}
      */
     var tokens  = {
-        tokens: parsers.parseHtml( tokens, style, options ),
+        tokens: parsers.parseHtml( source, style, options ),
         split_source: source
     };
 
