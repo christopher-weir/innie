@@ -2,38 +2,45 @@
 
 var loaders = require('../utils/loaders');
 var parsers = require('../utils/parsers');
-var utils   = require('../utils');
-var path    = require('path');
+var utils = require('../utils');
+var path = require('path');
 
 // load up a file and
-module.exports = function( _options ) {
+module.exports = function(_options) {
 
     var options = _options;
-    var loader  = loaders.fs();
+    var loader = loaders.fs();
 
-    var file        = loader.load( options.file );
-    var style       = loader.load( options.style );
+    return new Promise(function(_resolve, _reject) {
 
-    var name        = options.file_name || path.basename( options.file );
-    var location    = options.location;
-    var source      = utils.markup.splitHtml( file );
+        var file = null;
+        var style = null;
 
-    /**
-     * The tokens object stores any usefull data for the creation of the
-     * innie instance
-     * @type {Object}
-     */
-    var tokens  = {
-        tokens: parsers.parseHtml( source, style, options ),
-        split_source: source
-    };
+        try {
+            file = loader.load(options.file);
+            style = loader.load(options.style);
+        } catch (e) {
+            _reject(e);
+        }
 
-    var createHtml = utils.markup.createHtmlFile( tokens );
+        var name = options.file_name || path.basename(options.file);
+        var location = options.location;
+        var source = utils.markup.splitHtml(file);
 
-    return new Promise(function( _resolve, _reject ){
+        /**
+         * The tokens object stores any usefull data for the creation of the
+         * innie instance
+         * @type {Object}
+         */
+        var tokens = {
+            tokens: parsers.parseHtml(source, style, options),
+            split_source: source
+        };
 
-        loaders.save( location + name, createHtml )
-            .then(function( data ){
+        var createHtml = utils.markup.createHtmlFile(tokens);
+
+        loaders.save(location + name, createHtml)
+            .then(function(data) {
                 _resolve('saved');
             });
     });

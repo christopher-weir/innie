@@ -44,6 +44,9 @@ exports.Innie = function( _opts ) {
             publicMethods.compileHtml( options )
                 .then(function( data ){
                     _resolve('saved');
+                })
+                .catch(function(reason) {
+                   _reject(reason);
                 });
         });
 
@@ -57,6 +60,9 @@ exports.Innie = function( _opts ) {
             publicMethods.compileReact( options )
                 .then(function( data ){
                     _resolve('saved');
+                })
+                .catch(function(reason) {
+                   _reject(reason);
                 });
         });
 
