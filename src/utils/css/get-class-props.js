@@ -1,7 +1,6 @@
 'use strict';
 
-var cssClassRegExp          = require('../reg-exp/css-class-reg-exp');
-var elementRegExp           = require('../reg-exp/element-reg-exp');
+var regExp          = require('../reg-exp');
 
 /**
  * Taking the css class split it and return an array of its properties
@@ -12,7 +11,7 @@ var elementRegExp           = require('../reg-exp/element-reg-exp');
 module.exports = function( _class ) {
 
     var classProps      = [];
-    var styleToAdd      = _class.split( elementRegExp( '{','}' ) );
+    var styleToAdd      = _class.split( regExp.element( '{','}' ) );
 
     classProps = styleToAdd[ 1 ].replace(/(\r\n|\n|\r|[{}])/gm,'').split(';');
 

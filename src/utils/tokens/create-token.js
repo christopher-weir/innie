@@ -2,9 +2,7 @@
 
 var getArrayOfClasses           = require('../markup/get-array-of-classes');
 var getStyleProperties          = require('../markup/get-style-properties');
-var classRegExp                 = require('../reg-exp/class-reg-exp');
-var styleRegExp                 = require('../reg-exp/style-reg-exp');
-
+var regExp                      = require('../reg-exp');
 
 module.exports = function( _chunk, _options, _index ) {
 
@@ -13,9 +11,9 @@ module.exports = function( _chunk, _options, _index ) {
     var hasStyle = false;
     var styleProperties = [];
 
-    if( _chunk.split( styleRegExp() )[1] ){
+    if( _chunk.split( regExp.style() )[1] ){
         hasStyle = true;
-        style = _chunk.split( styleRegExp() )[1];
+        style = _chunk.split( regExp.style() )[1];
         styleProperties = getStyleProperties( style );
     }
 
@@ -29,8 +27,8 @@ module.exports = function( _chunk, _options, _index ) {
             compiled    : ''
         },
         class       : {
-            original    : _chunk.split( classRegExp() )[1],
-            all         : getArrayOfClasses( _chunk.split( classRegExp() )[1] ),
+            original    : _chunk.split( regExp.classCss() )[1],
+            all         : getArrayOfClasses( _chunk.split( regExp.classCss() )[1] ),
             matches     : [],
             unmatched   : []
         }

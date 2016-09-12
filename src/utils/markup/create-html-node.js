@@ -1,6 +1,6 @@
 'use strict';
 
-var elementRegExp           = require('../reg-exp/element-reg-exp');
+var regExp           = require('../reg-exp');
 
 /**
  * Creates a new node using the token object
@@ -11,7 +11,7 @@ var elementRegExp           = require('../reg-exp/element-reg-exp');
 module.exports = function( _token ) {
 
     // find the type of element eg '<div', '<article' etc
-    var elementStart = String(  _token.original.split( elementRegExp( '<',' ' ) )[ 1 ] ).replace(/\s\s+/g, ' ');
+    var elementStart = String(  _token.original.split( regExp.element( '<',' ' ) )[ 1 ] ).replace(/\s\s+/g, ' ');
 
     var _style = ' style="' + _token.style.compiled + '"';
 

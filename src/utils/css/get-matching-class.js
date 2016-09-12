@@ -1,6 +1,6 @@
 'use strict';
 
-var cssClassRegExp          = require('../reg-exp/css-class-reg-exp');
+var regExp          = require('../reg-exp');
 
 /**
  * Using the class name parse the css source and find matching classes
@@ -15,7 +15,7 @@ module.exports = function( _name, _src, _options ) {
 
     var classProperties   = false;
     var name        = _name.replace( _options.hook, '');
-    var splitArray  = _src.split( cssClassRegExp( name ) );
+    var splitArray  = _src.split( regExp.classCss( name ) );
 
     if( splitArray[ 1 ] ){
         classProperties = splitArray[ 1 ];

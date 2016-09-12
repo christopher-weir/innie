@@ -1,6 +1,6 @@
 'use strict';
 
-var elementRegExp           = require('../reg-exp/element-reg-exp');
+var regExp           = require('../reg-exp');
 
 /**
  *
@@ -11,7 +11,7 @@ var elementRegExp           = require('../reg-exp/element-reg-exp');
  */
 module.exports = function( _str ) {
 
-    var str = _str.replace(/\r\n/g, '\n').split( elementRegExp( '<','>' ) );
+    var str = _str.replace(/\r\n/g, '\n').split( regExp.element( '<','>' ) );
 
     return str;
 };
