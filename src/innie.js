@@ -1,8 +1,8 @@
 'use strict';
 
-var loaders         = require('./utils/loaders');
-var utils           = require('./utils');
-var publicMethods   = require('./public_methods');
+var loaders = require('./utils/loaders');
+var utils = require('./utils');
+var publicMethods = require('./public_methods');
 
 /**
  * innie version number as a string.
@@ -18,60 +18,48 @@ exports.version = '0.0.1';
  * @property {String} hook What the app looks for as the prefix to the replacement
  */
 var defaultOptions = {
-    hook        : '#',
-    location    : './',
-    file_name   : null,
-    file        : '',
-    type        : '',
-    style       : ''
+    hook: '#',
+    location: './',
+    output: '',
+    file_name: null,
+    file: '',
+    type: '',
+    style: ''
 };
 var defaultInstance = null;
 
 
-exports.Innie = function( _opts ) {
+exports.Innie = function(_opts) {
 
-    utils.helpers.validateOptions( _opts );
+    utils.helpers.validateOptions(_opts);
 
     var self = this;
 
-    this.options = utils.helpers.extend( defaultOptions, _opts || {});
+    this.options = utils.helpers.extend(defaultOptions, _opts || {});
 
-    this.compileHtml = function( _options ){
+    this.compileHtml = function(_options) {
 
-        var options = utils.helpers.extend( self.options, _options || {});
+        var options = utils.helpers.extend(self.options, _options || {});
 
-        return new Promise(function( _resolve, _reject ){
-            publicMethods.compileHtml( options )
-                .then(function( data ){
-                    _resolve('saved');
-                })
-                .catch(function(reason) {
-                   _reject(reason);
-                });
-        });
-
-    };
-
-    this.compileReact = function( _options ){
-        self.options.type = 'react';
-        var options = utils.helpers.extend( self.options, _options || {});
-
-        return new Promise(function( _resolve, _reject ){
-            publicMethods.compileReact( options )
-                .then(function( data ){
-                    _resolve('saved');
-                })
-                .catch(function(reason) {
-                   _reject(reason);
-                });
-        });
+        return new Promise(
+            function( _resolve, _reject ) {
+                publicMethods
+                    .compileHtml( options )
+                    .then(function( data ) {
+                        _resolve('saved');
+                    })
+                    .catch(function(reason) {
+                        _reject(reason);
+                    });
+            }
+        );
 
     };
 };
 
 
 
-defaultInstance         = new exports.Innie();
-exports.options         = defaultInstance.options;
-exports.compileHtml     = defaultInstance.compileHtml;
-exports.compileReact    = defaultInstance.compileReact;
+defaultInstance = new exports.Innie();
+exports.options = defaultInstance.options;
+exports.compileHtml = defaultInstance.compileHtml;
+exports.compileReact = defaultInstance.compileReact;
