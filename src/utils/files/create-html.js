@@ -1,6 +1,6 @@
 'use strict';
 
-var createNode = require('./create-html-node');
+var markup = require('../markup');
 
 module.exports = function( _tokens ) {
 
@@ -10,9 +10,7 @@ module.exports = function( _tokens ) {
 
     // loop through the tokens and replace the attributes when needed
     for ( i = 0; i < tokens.length; i++ ) {
-
-        var cleanClass = createNode( tokens[ i ] );
-        original[ tokens[ i ].index ] = cleanClass;
+        original[ tokens[ i ].index ] = markup.createNodeHtml( tokens[ i ] );
     }
 
     // .replace(/\s\s+/g, ' ')

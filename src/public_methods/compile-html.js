@@ -37,7 +37,7 @@ module.exports = function(_options) {
             split_source: source
         };
 
-        var createHtml = utils.markup.createHtmlFile(tokens);
+        var createHtml = utils.files.createHtml(tokens);
 
         loaders.save(location + name, createHtml)
             .then(function(data) {

@@ -2,6 +2,5 @@
 
 exports.getArrayOfClasses           = require('./get-array-of-classes');
 exports.getStyleProperties          = require('./get-style-properties');
-exports.createHtmlNode              = require('./create-html-node');
-exports.createHtmlFile              = require('./create-html-file');
+exports.createNodeHtml              = require('./create-node-html');
 exports.splitHtml                   = require('./split-html');
