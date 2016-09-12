@@ -27,13 +27,12 @@ module.exports = function( _chunk, _options, _index ) {
             compiled    : ''
         },
         class       : {
-            original    : _chunk.split( regExp.classCss() )[1],
-            all         : getArrayOfClasses( _chunk.split( regExp.classCss() )[1] ),
+            original    : _chunk.split( regExp.classHtml() )[1],
+            all         : getArrayOfClasses( _chunk.split( regExp.classHtml() )[1] ),
             matches     : [],
             unmatched   : []
         }
     };
-
 
     for ( i = 0; i < token.class.all.length; i++) {
         if( token.class.all[ i ].includes( _options.hook ) ){
